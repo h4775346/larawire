@@ -7,60 +7,75 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Livewire Starter Kit
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This Project has been created to make it easy for you to start any project
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Livewire Installed.
+- Custom Dialogs.
+- Livewire Data tables.
+- SweetAlert2 Installed.
+- Livewire Modal Created.
+- Roles And Permissions Included.
+- Dark Mode Supported.
+- Tailwind Included.
+- Jetstream Used
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+[comment]: <> (Laravel is accessible, powerful, and provides tools required for large, robust applications.)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+[comment]: <> (## Learning Laravel)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+[comment]: <> (Laravel has the most extensive and thorough [documentation]&#40;https://laravel.com/docs&#41; and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+[comment]: <> (You may also try the [Laravel Bootcamp]&#40;https://bootcamp.laravel.com&#41;, where you will be guided through building a modern Laravel application from scratch.)
 
-## Laravel Sponsors
+[comment]: <> (If you don't feel like reading, [Laracasts]&#40;https://laracasts.com&#41; can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+[comment]: <> (## Laravel Sponsors)
 
-### Premium Partners
+[comment]: <> (We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page]&#40;https://patreon.com/taylorotwell&#41;.)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+[comment]: <> (### Premium Partners)
 
-## Contributing
+[comment]: <> (- **[Vehikl]&#40;https://vehikl.com/&#41;**)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+[comment]: <> (- **[Tighten Co.]&#40;https://tighten.co&#41;**)
 
-## Code of Conduct
+[comment]: <> (- **[Kirschbaum Development Group]&#40;https://kirschbaumdevelopment.com&#41;**)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+[comment]: <> (- **[64 Robots]&#40;https://64robots.com&#41;**)
 
-## Security Vulnerabilities
+[comment]: <> (- **[Cubet Techno Labs]&#40;https://cubettech.com&#41;**)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+[comment]: <> (- **[Cyber-Duck]&#40;https://cyber-duck.co.uk&#41;**)
 
-## License
+[comment]: <> (- **[Many]&#40;https://www.many.co.uk&#41;**)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+[comment]: <> (- **[Webdock, Fast VPS Hosting]&#40;https://www.webdock.io/en&#41;**)
+
+[comment]: <> (- **[DevSquad]&#40;https://devsquad.com&#41;**)
+
+[comment]: <> (- **[Curotec]&#40;https://www.curotec.com/services/technologies/laravel/&#41;**)
+
+[comment]: <> (- **[OP.GG]&#40;https://op.gg&#41;**)
+
+[comment]: <> (- **[WebReinvent]&#40;https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors&#41;**)
+
+[comment]: <> (- **[Lendio]&#40;https://lendio.com&#41;**)
+
+[comment]: <> (## Contributing)
+
+[comment]: <> (Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation]&#40;https://laravel.com/docs/contributions&#41;.)
+
+[comment]: <> (## Code of Conduct)
+
+[comment]: <> (In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct]&#40;https://laravel.com/docs/contributions#code-of-conduct&#41;.)
+
+[comment]: <> (## Security Vulnerabilities)
+
+[comment]: <> (If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com]&#40;mailto:taylor@laravel.com&#41;. All security vulnerabilities will be promptly addressed.)
+
+[comment]: <> (## License)
+
+[comment]: <> (The Laravel framework is open-sourced software licensed under the [MIT license]&#40;https://opensource.org/licenses/MIT&#41;.)
