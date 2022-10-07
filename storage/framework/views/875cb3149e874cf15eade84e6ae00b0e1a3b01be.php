@@ -1,2 +1,0 @@
-<li><a class="active:bg-gray-300 active:text-gray-800" href="<?php echo e(route('dashboard')); ?>"><?php echo e(__("Dashboard")); ?></a></li>
-<?php /**PATH /home/abanoub/work/larawire/resources/views/side-nav.blade.php ENDPATH**/ ?>

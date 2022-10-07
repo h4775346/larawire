@@ -1,5 +1,6 @@
 import './bootstrap';
 import './nav';
+import './alerts';
 
 import Alpine from 'alpinejs';
 

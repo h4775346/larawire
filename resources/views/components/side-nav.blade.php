@@ -1,5 +1,5 @@
 <div class="layout has-sidebar fixed-sidebar fixed-header">
-    <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
+    <aside id="sidebar" class="sidebar break-point-lg has-bg-image min-h-screen">
         <div class="image-wrapper">
             <img
                 src="https://user-images.githubusercontent.com/25878302/144499035-2911184c-76d3-4611-86e7-bc4e8ff84ff5.jpg"
@@ -17,9 +17,9 @@
             <div class="sidebar-content">
                 <nav class="menu open-current-submenu">
                     <ul>
-                        <x-side-nav-item :route="route('dashboard')" :icon="'ri-vip-diamond-fill'" title="Home"></x-side-nav-item>
-                        <x-side-nav-sub-item  :icon="'ri-group-line'" :title="'Users'">
-                            <x-side-nav-item  :route="route('users')" :icon="'ri-list-ordered'" :title="'All Users'"></x-side-nav-item>
+                        <x-side-nav-item :route="route('dashboard')" icon="ri-vip-diamond-fill" title="Home"></x-side-nav-item>
+                        <x-side-nav-sub-item  icon="ri-group-line" title="Users">
+                            <x-side-nav-item  :route="route('users.index')" icon="ri-list-ordered" title="All Users"></x-side-nav-item>
                         </x-side-nav-sub-item>
                     </ul>
                 </nav>
