@@ -44,7 +44,7 @@ composer install
 ```
 Install node modules for that you need nodejs
 ```
-npm install && npm run dev
+npm install && npm run build
 ```
 #### Do not forget to configure your database in .env file
 
@@ -67,6 +67,11 @@ Now Login Using
 Username : admin@example.com
 
 Password : password
+```
+
+### For Realtime server in vite you can start
+```
+npm run dev
 ```
 
 # Enjoy your self 😁
