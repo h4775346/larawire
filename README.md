@@ -7,20 +7,69 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Livewire Starter Kit
+## 🚀Livewire Starter Kit🔥
 
 This Project has been created to make it easy for you to start any project
 
-- Livewire Installed.
-- Custom Dialogs.
-- Livewire Data tables.
-- SweetAlert2 Installed.
-- Livewire Modal Created.
-- Roles And Permissions Included.
-- Dark Mode Supported.
-- Tailwind Included.
-- Jetstream Used
+- ✅ Livewire Installed.
+- ✅ Custom Dialogs.
+- ✅ Livewire Data tables.
+- ✅ SweetAlert2 Installed.
+- ✅ Livewire Modal Created.
+- ✅ Roles And Permissions Included.
+- ✅ Dark Mode Supported.
+- ✅ Tailwind Included.
+- ✅ Jetstream Used
 
+## Installation
+
+First Clone The Project
+```
+git clone https://github.com/h4775346/larawire.git
+```
+
+Then go inside the folder
+```
+cd larawire
+```
+
+Then Copy .env File
+```
+cp .env.example .env
+```
+
+After That install composer libraries
+```
+composer install
+```
+Install node modules for that you need nodejs
+```
+npm install && npm run dev
+```
+####Do not forget to configure your database in .env file
+
+Now you generate artisan key
+```
+php artisan key:generate
+```
+
+Now Start migration with seeding roles and permissions with users
+```
+php artisan migrate:fresh --seed
+```
+
+Start Your Server
+```
+php artisan serve
+```
+Now Login Using
+```
+Username : admin@example.com
+
+Password : password
+```
+
+# Enjoy your self 😁
 
 [comment]: <> (Laravel is accessible, powerful, and provides tools required for large, robust applications.)
 
