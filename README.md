@@ -46,7 +46,7 @@ Install node modules for that you need nodejs
 ```
 npm install && npm run dev
 ```
-####Do not forget to configure your database in .env file
+#### Do not forget to configure your database in .env file
 
 Now you generate artisan key
 ```
