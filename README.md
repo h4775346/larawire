@@ -69,7 +69,7 @@ Username : admin@example.com
 Password : password
 ```
 
-### For Realtime server in vite you can start
+#### For Realtime server in vite to detect tailwind and file changes without running npm run build over and over, you can just run development server
 ```
 npm run dev
 ```
