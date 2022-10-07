@@ -11,7 +11,7 @@
 
 This Project has been created to make it easy for you to start any project
 
-- ✅ Livewire Installed.
+- ☑️ Livewire Installed.
 - ✅ Custom Dialogs.
 - ✅ Livewire Data tables.
 - ✅ SweetAlert2 Installed.
