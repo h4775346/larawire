@@ -7,14 +7,17 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Validation\Rule;
 use Livewire\WithFileUploads;
 use LivewireUI\Modal\ModalComponent;
+use Spatie\Permission\Models\Role;
 
 class Edit extends ModalComponent
 {
 
     use WithFileUploads;
 
-    public $userData;
+    public User $userData;
     public $photo;
+    public $allRoles;
+    public $selectedRoles = [];
 
 
     protected function rules()
@@ -35,6 +38,9 @@ class Edit extends ModalComponent
     public function mount(User $user)
     {
         $this->userData = $user;
+        $this->allRoles = Role::all();
+        $this->selectedRoles = $this->userData->getRoleNames()->toArray();
+
     }
 
     public function render()
@@ -48,7 +54,8 @@ class Edit extends ModalComponent
         if ($this->photo) {
             $this->userData->updateProfilePhoto($this->photo);
         }
-        $this->emit('update', $this->userData,$this->photo);
+        $this->userData->syncRoles($this->selectedRoles);
+        $this->emit('update', $this->userData, $this->photo);
     }
 
 }
