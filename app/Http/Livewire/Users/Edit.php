@@ -5,26 +5,31 @@ namespace App\Http\Livewire\Users;
 use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Validation\Rule;
+use Livewire\WithFileUploads;
 use LivewireUI\Modal\ModalComponent;
 
 class Edit extends ModalComponent
 {
 
+    use WithFileUploads;
+
     public $userData;
+    public $photo;
 
 
     protected function rules()
     {
         return [
             'userData.name' => ['required', 'string', 'max:255'],
-            'userData.email' => ['required', 'email', 'max:255', "unique:users,email," . $this->userData->id ],
-            'userData.photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
+            'userData.email' => ['required', 'email', 'max:255', "unique:users,email," . $this->userData->id],
+            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ];
     }
 
-    public function updated()
+
+    public function updated($propertyName)
     {
-        $this->validate();
+        $this->validateOnly($propertyName);
     }
 
     public function mount(User $user)
@@ -40,7 +45,10 @@ class Edit extends ModalComponent
     public function update()
     {
         $this->validate();
-        $this->emit('update',$this->userData);
+        if ($this->photo) {
+            $this->userData->updateProfilePhoto($this->photo);
+        }
+        $this->emit('update', $this->userData,$this->photo);
     }
 
 }

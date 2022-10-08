@@ -6,6 +6,7 @@ namespace App\Http\Livewire\Users;
 use App\Models\User;
 use App\Traits\Sweety;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Http\UploadedFile;
 use Livewire\Component;
 
 class Index extends Component
@@ -34,7 +35,7 @@ class Index extends Component
      * @param User $user
      *
      */
-    public function update($user)
+    public function update($user,$photo = null)
     {
 
         $oldUser = User::findOrFail($user["id"]);
