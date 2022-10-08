@@ -37,12 +37,13 @@ class Table extends DataTableComponent
                 fn($value, $row, Column $column) => '<img class="w-10 h-10 rounded-full" src="' . $row->profile_photo_url . '" />'
             )->html(),
             Column::make('name')
-                ->format(fn($value, $row, Column $column) => '<a class="font-medium text-blue-600 dark:text-blue-500 hover:underline cursor-pointer" wire:click.prevent="$emit(`show`,' . $row->id . ')">' . $value . '</a>')->html()
+                ->format(fn($value, $row, Column $column) => '<a class="font-medium text-blue-600 dark:text-yellow-400 hover:underline cursor-pointer" wire:click.prevent="$emit(`show`,' . $row->id . ')">' . $value . '</a>')->html()
                 ->sortable()->searchable(),
+            Column::make('email')->sortable()->searchable(),
+
             Column::make('Role','name')->format(
                 fn($value, User $row, Column $column) => $row->roles()->get()->map(fn($role)=>$role->name)->join(' , ')
             )->html(),
-            Column::make('email')->sortable()->searchable(),
         ];
     }
 
