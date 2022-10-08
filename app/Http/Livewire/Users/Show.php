@@ -10,6 +10,7 @@ class Show extends ModalComponent
 
 
     public User $userData;
+    protected $listeners = ['reload'];
 
 
     public function mount(User $user)
@@ -17,11 +18,15 @@ class Show extends ModalComponent
         $this->userData = $user;
     }
 
+    public function reload()
+    {
+        $this->userData = User::findOrFail($this->userData->id);
+    }
+
     public function render()
     {
         return view('livewire.users.show');
     }
-
 
 
 }

@@ -31,7 +31,7 @@
     </ul>
 
     <div class="modal-action">
-        <x-jet-button>Edit</x-jet-button>
+        <x-jet-button wire:click.prevent="$emit('edit',{{$userData->id}})" >Edit</x-jet-button>
         <x-jet-danger-button wire:click.prevent="$emit('delete',{{json_encode([$userData->id])}})">Delete
         </x-jet-danger-button>
     </div>

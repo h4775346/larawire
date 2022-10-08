@@ -5,13 +5,14 @@ namespace App\Http\Livewire\Users;
 
 use App\Models\User;
 use App\Traits\Sweety;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Livewire\Component;
 
 class Index extends Component
 {
     use Sweety;
 
-    protected $listeners = ['show', 'delete', 'destroy'];
+    protected $listeners = ['show', 'edit', 'update', 'delete', 'destroy'];
 
     public function render()
     {
@@ -23,6 +24,52 @@ class Index extends Component
         $this->emit('openModal', 'users.show', ['user' => $id]);
     }
 
+    public function edit($id)
+    {
+        $this->emit('openModal', 'users.edit', ['user' => $id]);
+    }
+
+
+    /**
+     * @param User $user
+     *
+     */
+    public function update($user)
+    {
+
+        $oldUser = User::findOrFail($user["id"]);
+
+        if ($user["email"] !== $oldUser->email &&
+            $oldUser instanceof MustVerifyEmail) {
+            $this->updateVerifiedUser($user, $oldUser);
+        } else {
+            $oldUser->forceFill([
+                'name' => $user["name"],
+                'email' => $user["email"],
+            ])->save();
+        }
+        $this->showModal("success", "Process Done Successfully");
+        $this->emit('closeModal');
+        $this->emit('reload');
+        $this->reset();
+    }
+
+    /**
+     * Update the given verified user's profile information.
+     * @param  $user
+     * @param User | MustVerifyEmail $oldUser
+     * @return void
+     */
+    protected function updateVerifiedUser($user, User|MustVerifyEmail $oldUser)
+    {
+        $oldUser->forceFill([
+            'name' => $user["name"],
+            'email' => $user["email"],
+            'email_verified_at' => null,
+        ])->save();
+    }
+
+
     public function delete($ids)
     {
         $this->showConfirm('warning', 'Please Confirm This Process', 'destroy', ['ids' => $ids]);
@@ -30,7 +77,7 @@ class Index extends Component
 
     public function destroy($data)
     {
-        User::query()->whereIn('id',$data["ids"])->delete();
+        User::query()->whereIn('id', $data["ids"])->delete();
         $this->showModal("success", "Process Done Successfully");
         $this->emit('closeModal');
         $this->emit('reload');
