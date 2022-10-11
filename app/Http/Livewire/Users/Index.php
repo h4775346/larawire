@@ -7,13 +7,16 @@ use App\Models\User;
 use App\Traits\Sweety;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Laravel\Jetstream\Jetstream;
 use Livewire\Component;
 
 class Index extends Component
 {
     use Sweety;
 
-    protected $listeners = ['show', 'edit', 'update', 'delete', 'destroy'];
+    protected $listeners = ['show','create', 'edit', 'update', 'delete', 'destroy'];
 
     public function render()
     {
@@ -31,11 +34,25 @@ class Index extends Component
     }
 
 
+    public function create($user,$roles = [])
+    {
+       $user =  User::query()->create([
+            'name' => $user['name'],
+            'email' => $user['email'],
+            'password' => Hash::make($user['password']),
+        ]);
+        $user->syncRoles($roles);
+        $this->showToast("success", "Process Done Successfully");
+        $this->emit('closeModal');
+        $this->emit('reload');
+        $this->reset();
+    }
+
     /**
      * @param User $user
      *
      */
-    public function update($user,$photo = null)
+    public function update($user)
     {
 
         $oldUser = User::findOrFail($user["id"]);
@@ -49,7 +66,7 @@ class Index extends Component
                 'email' => $user["email"],
             ])->save();
         }
-        $this->showModal("success", "Process Done Successfully");
+        $this->showToast("success", "Process Done Successfully");
         $this->emit('closeModal');
         $this->emit('reload');
         $this->reset();
@@ -79,7 +96,7 @@ class Index extends Component
     public function destroy($data)
     {
         User::query()->whereIn('id', $data["ids"])->delete();
-        $this->showModal("success", "Process Done Successfully");
+        $this->showToast("success", "Process Done Successfully");
         $this->emit('closeModal');
         $this->emit('reload');
         $this->reset();

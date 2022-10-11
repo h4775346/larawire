@@ -29,12 +29,6 @@ class Edit extends ModalComponent
         ];
     }
 
-
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-    }
-
     public function mount(User $user)
     {
         $this->userData = $user;
@@ -47,6 +41,14 @@ class Edit extends ModalComponent
     {
         return view('livewire.users.edit');
     }
+
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+
 
     public function update()
     {

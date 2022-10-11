@@ -1,5 +1,6 @@
 <div class="p-5 dark:bg-gray-800">
     <form wire:submit.prevent="update">
+
         <div class="space-y-4">
             <div class="flex justify-center">
                 @if ($photo)

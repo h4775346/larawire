@@ -7,7 +7,7 @@ namespace App\Traits;
 trait Sweety
 {
 
-    public function showModal($type, $msg)
+    public function showToast($type, $msg)
     {
         $this->dispatchBrowserEvent('alert', [
             'type' => $type,
