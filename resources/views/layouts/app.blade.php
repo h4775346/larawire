@@ -43,6 +43,8 @@
         <script src="{{asset('js/popper.js')}}"></script>
         <script src="{{asset('js/theme.js')}}"></script>
         <script src="{{asset('js/sweetalert2.js')}}"></script>
+        <script src="{{asset('js/nav.js')}}"></script>
+        <script src="{{asset('js/alerts.js')}}"></script>
 
         @stack('modals')
         @livewireScripts
