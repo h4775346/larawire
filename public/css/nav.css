@@ -175,7 +175,10 @@
     transform: rotate(45deg);
 }
 .layout .sidebar .menu .menu-item.active > a .menu-title {
-    color: #dee2ec;
+    color: #ffffff;
+}
+.layout .sidebar .menu .menu-item.active{
+    background: #2b2e4a;
 }
 .layout .sidebar .menu .menu-item.active > a::after {
     border-color: #dee2ec;

@@ -17,9 +17,9 @@
             <div class="sidebar-content">
                 <nav class="menu open-current-submenu">
                     <ul>
-                        <x-side-nav-item :route="route('dashboard')" icon="ri ri-home-2-line" title="Home"></x-side-nav-item>
-                        <x-side-nav-sub-item  icon="ri-group-line" title="Users">
-                            <x-side-nav-item  :route="route('users.index')" icon="ri-list-ordered" title="All Users"></x-side-nav-item>
+                        <x-side-nav-item route="dashboard" icon="ri ri-home-2-line" title="Home"></x-side-nav-item>
+                        <x-side-nav-sub-item route="users" icon="ri-group-line" title="Users">
+                            <x-side-nav-item  route="users.index" icon="ri-list-ordered" title="All Users"></x-side-nav-item>
                         </x-side-nav-sub-item>
                     </ul>
                 </nav>
