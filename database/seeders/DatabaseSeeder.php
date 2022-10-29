@@ -22,11 +22,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@example.com',
         ]);
 
-        $user->assignRole('super_admin');
+        $user->assignRole('super_admin','web');
 
 
-        User::factory(100)->create();
+        $users = User::factory(100)->create();
 
+        $users->each(function (User $user) {
+            $user->assignRole('admin');
+        });
 
     }
 }

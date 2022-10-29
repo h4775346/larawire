@@ -13,18 +13,36 @@ class RolesAndPermissionsSeeder extends Seeder
     public function run()
     {
 
-        $permissions = [
+        $permissionsSuperAdmin = [
             'users.index',
             'users.create',
             'users.update',
             'users.destroy',
         ];
 
-        foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission]);
+        $permissionsAdmin = [
+            'sim.index',
+            'sim.create',
+            'sim.update',
+            'sim.destroy',
+        ];
+
+
+        foreach ($permissionsSuperAdmin as $permission) {
+            Permission::create(['name' => $permission,'guard_name' => 'web']);
         }
-        Role::create(['name' => 'user']);
-        $role = Role::create(['name' => 'super_admin']);
-        $role->givePermissionTo($permissions);
+
+        foreach ($permissionsAdmin as $permission) {
+            Permission::create(['name' => $permission,'guard_name' => 'api']);
+        }
+
+
+        $superAdmin = Role::create(['name' => 'super_admin','guard_name'=>'web']);
+
+        $admin = Role::create(['name' => 'admin','guard_name'=>'api']);
+
+        $admin->givePermissionTo($permissionsAdmin);
+
+        $superAdmin->givePermissionTo($permissionsSuperAdmin);
     }
 }

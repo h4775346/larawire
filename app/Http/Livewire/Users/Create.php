@@ -43,10 +43,10 @@ class Create extends ModalComponent
     }
 
 
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-    }
+//    public function updated($propertyName)
+//    {
+//        $this->validateOnly($propertyName);
+//    }
 
 
     public function create()
