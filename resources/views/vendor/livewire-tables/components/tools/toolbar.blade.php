@@ -35,11 +35,11 @@
                         wire:model{{ $component->getSearchOptions() }}="{{ $component->getTableName() }}.search"
                         placeholder="{{ __('Search') }}"
                         type="text"
-                        class="block w-full border-gray-300 rounded-md shadow-sm transition duration-150 ease-in-out sm:text-sm sm:leading-5 dark:bg-gray-700 dark:text-white dark:border-gray-600 @if ($component->hasSearch()) rounded-none rounded-l-md focus:ring-0 focus:border-gray-300 @else focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md @endif"
+                        class="block w-full border-gray-300 rounded-md shadow-sm transition duration-150 ease-in-out sm:text-sm sm:leading-5 dark:bg-gray-700 dark:text-white dark:border-gray-600 @if ($component->hasSearch()) rounded-none ltr:rounded-l-md rtl:rounded-r-md focus:ring-0 focus:border-gray-300 @else focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md @endif"
                     />
 
                     @if ($component->hasSearch())
-                        <span wire:click.prevent="clearSearch" class="inline-flex items-center px-3 text-gray-500 bg-gray-50 rounded-r-md border border-l-0 border-gray-300 cursor-pointer sm:text-sm dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600">
+                        <span wire:click.prevent="clearSearch" class="inline-flex items-center px-3 text-gray-500 bg-gray-50 ltr:rounded-r-md rtl:rounded-l-md border ltr:border-l-0 rtl:border-r-0 border-gray-300 cursor-pointer sm:text-sm dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
@@ -75,21 +75,21 @@
                             @endif
                         >
                             @lang('Filters')
-            
+
                             @if ($count = $component->getFilterBadgeCount())
                                 <span class="ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-indigo-100 text-indigo-800 capitalize dark:bg-indigo-200 dark:text-indigo-900">
                                     {{ $count }}
                                 </span>
                             @endif
-            
-                            <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+
+                            <svg class="ltr:-mr-1 ltr:ml-2 rtl:mr-2 rtl:-ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
                             </svg>
                         </button>
                     </div>
-            
+
                     @if ($component->isFilterLayoutPopover())
                         <div
                             x-cloak
@@ -104,6 +104,7 @@
                             role="menu"
                             aria-orientation="vertical"
                             aria-labelledby="filters-menu"
+                            style="text-align: start"
                         >
                             @foreach($component->getFilters() as $filter)
                                 @if($filter->isVisibleInMenus())
@@ -113,7 +114,7 @@
                                                 class="block text-sm font-medium leading-5 text-gray-700 dark:text-white">
                                                 {{ $filter->getName() }}
                                             </label>
-                
+
                                             {{ $filter->render($component) }}
                                         </div>
                                     </div>
@@ -153,7 +154,7 @@
                         x-data="{ open: false }"
                         @keydown.window.escape="open = false"
                         x-on:click.away="open = false"
-                        class="relative inline-block text-left z-10 w-full md:w-auto"
+                        class="relative inline-block text-left z-10 w-full md:w-auto md:mx-2"
                     >
                         <div>
                             <span class="rounded-md shadow-sm">
@@ -167,7 +168,7 @@
                                 >
                                     @lang('Bulk Actions')
 
-                                    <svg class="-mr-1 ml-2 h-5 w-5" x-description="Heroicon name: chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <svg class="-mr-1 ml-2 rtl:mr-2 rtl:-ml-1  h-5 w-5" x-description="Heroicon name: chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                     </svg>
                                 </button>
@@ -175,6 +176,8 @@
                         </div>
 
                         <div
+                            style="text-align: start"
+
                             x-cloak
                             x-show="open"
                             x-transition:enter="transition ease-out duration-100"
@@ -225,15 +228,17 @@
                                     aria-expanded="true"
                                 >
                                     @lang('Columns')
-            
-                                    <svg class="-mr-1 ml-2 w-5 h-5" x-description="Heroicon name: chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+
+                                    <svg class="-mr-1 ml-2 rtl:mr-2 rtl:-ml-1 w-5 h-5" x-description="Heroicon name: chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                     </svg>
                                 </button>
                             </span>
                         </div>
-            
+
                         <div
+                            style="text-align: start"
+
                             x-cloak
                             x-show="open"
                             x-transition:enter="transition ease-out duration-100"
@@ -242,7 +247,7 @@
                             x-transition:leave="transition ease-in duration-75"
                             x-transition:leave-start="transform opacity-100 scale-100"
                             x-transition:leave-end="transform opacity-0 scale-95"
-                            class="absolute right-0 z-50 mt-2 w-full bg-white rounded-md divide-y divide-gray-100 ring-1 ring-black ring-opacity-5 shadow-lg origin-top-right md:w-48 focus:outline-none"
+                            class="absolute ltr:right-0 rtl:left-0 z-50 mt-2 w-full bg-white rounded-md divide-y divide-gray-100 ring-1 ring-black ring-opacity-5 shadow-lg origin-top-right md:w-48 focus:outline-none"
                         >
                             <div class="bg-white rounded-md shadow-xs dark:bg-gray-700 dark:text-white">
                                 <div class="p-2" role="menu" aria-orientation="vertical" aria-labelledby="column-select-menu">
@@ -413,13 +418,13 @@
                                 @endif
                             >
                                 @lang('Filters')
-                
+
                                 @if ($count = $component->getFilterBadgeCount())
                                     <span class="badge badge-info">
                                         {{ $count }}
                                     </span>
                                 @endif
-                
+
                                 <span class="caret"></span>
                             </button>
                         </div>
@@ -675,13 +680,13 @@
                                 @endif
                             >
                                 @lang('Filters')
-                
+
                                 @if ($count = $component->getFilterBadgeCount())
                                     <span class="badge bg-info">
                                         {{ $count }}
                                     </span>
                                 @endif
-                
+
                                 <span class="caret"></span>
                             </button>
                         </div>

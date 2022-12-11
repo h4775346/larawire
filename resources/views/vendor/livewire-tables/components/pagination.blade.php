@@ -25,7 +25,7 @@
                             <span>@lang('results')</span>
                         </p>
                     @else
-                        <p class="total-pagination-results text-sm text-gray-700 leading-5 dark:text-white">
+                        <p class="total-pagination-results text-sm text-gray-700 leading-5 dark:text-white mx-2 my-2 mb-5">
                             @lang('Showing')
                             <span class="font-medium">{{ $rows->count() }}</span>
                             @lang('results')

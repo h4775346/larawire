@@ -13,36 +13,48 @@ class RolesAndPermissionsSeeder extends Seeder
     public function run()
     {
 
-        $permissionsSuperAdmin = [
+        $usersPermissions = [
             'users.index',
             'users.create',
             'users.update',
-            'users.destroy',
+            'users.delete',
         ];
 
-        $permissionsAdmin = [
-            'sim.index',
-            'sim.create',
-            'sim.update',
-            'sim.destroy',
+        $serversPermissions = [
+            'servers.all',
+            'servers.index',
+            'servers.create',
+            'servers.update',
+            'servers.delete',
         ];
 
+        $devicesPermissions = [
+            'devices.all',
+            'devices.index',
+            'devices.create',
+            'devices.update',
+            'devices.delete',
+        ];
 
-        foreach ($permissionsSuperAdmin as $permission) {
-            Permission::create(['name' => $permission,'guard_name' => 'web']);
+        $usersGiven = array_merge($serversPermissions, $devicesPermissions);
+        unset($usersGiven["devices.all"]);
+        unset($usersGiven["servers.all"]);
+
+        foreach (array_merge($usersPermissions, $serversPermissions, $devicesPermissions) as $permission) {
+            Permission::create(['name' => $permission, 'guard_name' => 'web']);
         }
+//
+//        foreach (array_merge($usersPermissions, $serversPermissions, $devicesPermissions) as $permission) {
+//            Permission::create(['name' => $permission, 'guard_name' => 'api']);
+//        }
 
-        foreach ($permissionsAdmin as $permission) {
-            Permission::create(['name' => $permission,'guard_name' => 'api']);
-        }
 
+        $superAdmin = Role::create(['name' => 'super_admin', 'guard_name' => 'web']);
 
-        $superAdmin = Role::create(['name' => 'super_admin','guard_name'=>'web']);
+        $user = Role::create(['name' => 'user', 'guard_name' => 'web']);
 
-        $admin = Role::create(['name' => 'admin','guard_name'=>'api']);
+        $user->givePermissionTo($usersGiven);
 
-        $admin->givePermissionTo($permissionsAdmin);
-
-        $superAdmin->givePermissionTo($permissionsSuperAdmin);
+        $superAdmin->givePermissionTo(array_merge($usersPermissions, $serversPermissions, $devicesPermissions));
     }
 }

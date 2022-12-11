@@ -1,6 +1,6 @@
 @props(['label'=>''])
 <label for="{{$attributes->get('wire:model','id')}}"
-       class="@error($attributes->get('wire:model','name')) text-red-700 dark:text-red-500 @enderror block mb-2 text-sm text-gray-800 dark:text-gray-100 font-medium'">
+       class="@error($attributes->get('wire:model','name')) text-red-700 dark:text-red-500 @enderror block mb-2 text-sm text-gray-800 dark:text-gray-100 font-medium'" style="text-align: start">
     {{$label}}
 </label>
 <input {{$attributes->merge()}} type="text" id="{{$attributes->get('wire:model','id')}}"

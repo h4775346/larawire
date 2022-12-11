@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Livewire\Users;
+namespace App\Http\Livewire\Roles;
 
 use App\Models\User;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\ButtonGroupColumn;
 use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
+use Spatie\Permission\Models\Role;
 
 class Table extends DataTableComponent
 {
@@ -16,7 +17,7 @@ class Table extends DataTableComponent
     ];
 
     protected $listeners = ['reload'];
-    protected $model = User::class;
+    protected $model = Role::class;
 
 
     public function configure(): void
@@ -35,27 +36,15 @@ class Table extends DataTableComponent
     {
         return [
             Column::make('id')->hideIf(true),
-            Column::make(__('Profile Photo'), 'profile_photo_path')->format(
-                fn($value, $row, Column $column) => '<img class="w-10 h-10 rounded-full" src="' . $row->profile_photo_url . '" />'
-            )->html(),
-            Column::make(__("Name"),'name')
+            Column::make(__("Role"),"name")
                 ->format(fn($value, $row, Column $column) => '<a class="font-medium text-blue-600 dark:text-yellow-400 hover:underline cursor-pointer" wire:click.prevent="$emit(`show`,' . $row->id . ')">' . $value . '</a>')->html()
                 ->sortable()->searchable(),
-            Column::make(__('Email'),'email')->sortable()->searchable(),
-
-            Column::make(__("Role"), 'name')->format(
-                fn($value, User $row, Column $column) => $row->roles()->get()->map(fn($role) => $role->name)->join(' , ')
-            )->html(),
-            ButtonGroupColumn::make(__("Actions"))
+            ButtonGroupColumn::make(__('Actions'))
                 ->attributes(function ($row) {
-                    return [
-                        'class' => 'space-x-2',
-                    ];
-                })
-                ->buttons([
-
-                    LinkColumn::make(__("View"))
-                        ->title(fn($row) => __('View'))
+                    return ['class' => 'space-x-2',];
+                })->buttons([
+                    LinkColumn::make(__('View'))
+                        ->title(fn($row) =>__( 'View'))
                         ->location(fn() => null)
                         ->attributes(function ($row) {
                             return [
@@ -74,8 +63,8 @@ class Table extends DataTableComponent
                             ];
                         }),
 
-                    LinkColumn::make(__('Delete'))
-                        ->title(fn($row) => __('Delete'))
+                    LinkColumn::make( __("Delete"))
+                        ->title(fn($row) => __("Delete"))
                         ->location(fn() => null)
                         ->attributes(function ($row) {
                             return [

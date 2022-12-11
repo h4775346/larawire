@@ -2,24 +2,33 @@
 
 namespace App\Http\Livewire\Roles;
 
-use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Livewire\Component;
+use Illuminate\Support\Collection;
+use Livewire\WithFileUploads;
 use LivewireUI\Modal\ModalComponent;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class Create extends ModalComponent
 {
-    use LivewireAlert;
+    use WithFileUploads;
 
-    public $role_name;
+    public Collection $roleData;
+    public Collection $allPermissions;
+    public array $selectedPermissions = [];
 
-    protected $rules = [
-        'role_name' => 'required|min:3|unique:roles,name',
-    ];
 
-    public function updated($propertyName)
+    protected function rules()
     {
-        $this->validateOnly($propertyName);
+        return [
+            'roleData.name' => ['required', 'string', 'max:255', "unique:roles,name"],
+            'selectedPermissions' => ['required', 'array']
+        ];
+    }
+
+    public function mount()
+    {
+        $this->roleData = collect(["name"]);
+        $this->allPermissions = Permission::all()->where("guard_name","web");
     }
 
     public function render()
@@ -27,12 +36,22 @@ class Create extends ModalComponent
         return view('livewire.roles.create');
     }
 
-    public function create(){
+    public function updated($param)
+    {
+        $this->validateOnly($param);
+    }
+
+
+//    public function updated($propertyName)
+//    {
+//        $this->validateOnly($propertyName);
+//    }
+
+
+    public function create()
+    {
         $this->validate();
-        Role::create(['name'=>$this->role_name]);
-        $this->alert('success', 'Basic Alert');
-        $this->emit('refresh');
-        $this->closeModal();
+        $this->emit('create', $this->roleData, $this->selectedPermissions);
     }
 
 }

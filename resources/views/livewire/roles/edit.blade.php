@@ -1,5 +1,5 @@
 <div class="p-5 dark:bg-gray-800">
-    <form wire:submit.prevent="create">
+    <form wire:submit.prevent="update">
 
         <div class="space-y-4">
 
@@ -8,12 +8,12 @@
             </div>
 
             <div class="modal-action">
-                <x-jet-button :disabled="$errors->any()" type="submit" class="dark:bg-gray-900">{{__("Create")}}</x-jet-button>
+                <x-jet-button :disabled="$errors->any()" type="submit" class="dark:bg-gray-900">{{__('Update')}}</x-jet-button>
             </div>
 
             <div class="flex justify-between">
                 <h3 class="mb-4 font-semibold text-gray-900 dark:text-white @error('selectedPermissions') text-red-400 @endError">
-                    {{__('Permissions')}}</h3>
+                    Permissions</h3>
             </div>
             @error('selectedPermissions')
             <div class="text-red-400">
@@ -30,7 +30,7 @@
             </ul>
         </div>
         <div class="modal-action">
-            <x-jet-button :disabled="$errors->any()" type="submit" class="dark:bg-gray-900">{{__('Create')}}</x-jet-button>
+            <x-jet-button :disabled="$errors->any()" type="submit" class="dark:bg-gray-900">{{__('Update')}}</x-jet-button>
         </div>
 
     </form>

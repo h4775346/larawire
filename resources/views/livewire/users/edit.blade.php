@@ -11,21 +11,21 @@
             </div>
 
             <div>
-                <x-input-field wire:model="photo" label="Profile Photo" type="file" accept="image/*"/>
+                <x-input-field wire:model="photo" label="{{__('Profile Photo')}}" type="file" accept="image/*"/>
             </div>
 
             <div>
-                <x-input-field type="text" wire:model="userData.name" label="Name"/>
+                <x-input-field type="text" wire:model="userData.name" label="{{__('Name')}}"/>
             </div>
             <div>
-                <x-input-field type="email" wire:model="userData.email" label="Email"/>
+                <x-input-field type="email" wire:model="userData.email" label="{{__('Email')}}"/>
             </div>
 
             <x-roles-selector :allRoles="$allRoles"/>
 
         </div>
         <div class="modal-action">
-            <x-jet-button :disabled="$errors->any()" type="submit" class="dark:bg-gray-900">Update</x-jet-button>
+            <x-jet-button :disabled="$errors->any()" type="submit" class="dark:bg-gray-900">{{__('Update')}}</x-jet-button>
         </div>
 
     </form>

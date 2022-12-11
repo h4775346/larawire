@@ -30,9 +30,9 @@
 {{--                </div>--}}
             </div>
 
-            <div class="ml-auto hidden sm:flex sm:items-center">
+            <div class="rtl:mr-auto ltr:ml-auto  hidden sm:flex sm:items-center">
                 <!-- Settings Dropdown -->
-                <div class="ml-3 relative">
+                <div class="ltr:ml-3 rtl:mr-3 relative">
                     <x-jet-dropdown align="right" width="48" >
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())

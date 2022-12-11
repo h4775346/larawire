@@ -20,7 +20,7 @@ trait Sweety
     {
         $this->dispatchBrowserEvent('confirm', [
             'type' => 'warning',
-            'message' => "Please Confirm This Process",
+            'message' => __("Please Confirm This Process"),
             'data' => $data,
             'callback' => $callback
         ]);
