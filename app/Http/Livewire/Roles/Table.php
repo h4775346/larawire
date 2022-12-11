@@ -28,16 +28,13 @@ class Table extends DataTableComponent
         $this->setTableWrapperAttributes([
             'style' => 'overflow-y: auto;'
         ]);
-        /*            ->setTrAttributes(function ($row) {
-                    return ['wire:click.stop' => '$emit("toggleSelect",' . $row->id . ')', 'class' => 'cursor-pointer hover:bg-gray-200'];
-                });*/
     }
 
     public function columns(): array
     {
         return [
             Column::make('id')->hideIf(true),
-            Column::make(__("Role"),"name")
+            Column::make(__("Role"), "name")
                 ->format(fn($value, $row, Column $column) => '<a class="font-medium text-blue-600 dark:text-yellow-400 hover:underline cursor-pointer" wire:click.prevent="$emit(`show`,' . $row->id . ')">' . $value . '</a>')->html()
                 ->sortable()->searchable(),
             ButtonGroupColumn::make(__('Actions'))
@@ -45,7 +42,7 @@ class Table extends DataTableComponent
                     return ['class' => 'space-x-2',];
                 })->buttons([
                     LinkColumn::make(__('View'))
-                        ->title(fn($row) =>__( 'View'))
+                        ->title(fn($row) => __('View'))
                         ->location(fn() => null)
                         ->attributes(function ($row) {
                             return [
@@ -64,7 +61,7 @@ class Table extends DataTableComponent
                             ];
                         }),
 
-                    LinkColumn::make( __("Delete"))
+                    LinkColumn::make(__("Delete"))
                         ->title(fn($row) => __("Delete"))
                         ->location(fn() => null)
                         ->attributes(function ($row) {
