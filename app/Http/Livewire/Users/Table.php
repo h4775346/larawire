@@ -60,7 +60,7 @@ class Table extends DataTableComponent
                         ->location(fn() => null)
                         ->attributes(function ($row) {
                             return [
-                                'class' => 'py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-200 rounded-lg border border-gray-200 hover:bg-gray-300  focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-700',
+                                'class' => 'py-1 px-5 mx-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-200 rounded-lg border border-gray-200 hover:bg-gray-300  focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-700',
                                 'wire:click.prevent' => '$emit(`show`,' . $row->id . ')'
                             ];
                         }),
@@ -70,7 +70,7 @@ class Table extends DataTableComponent
                         ->location(fn() => null)
                         ->attributes(function ($row) {
                             return [
-                                'class' => 'text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700',
+                                'class' => 'text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-1 mx-2 mb-2 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700',
                                 'wire:click.prevent' => '$emit(`edit`,' . $row->id . ')'
                             ];
                         }),
@@ -80,7 +80,7 @@ class Table extends DataTableComponent
                         ->location(fn() => null)
                         ->attributes(function ($row) {
                             return [
-                                'class' => 'focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900',
+                                'class' => 'focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-1 mx-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900',
                                 'wire:click.prevent' => '$emit(`delete`,' . json_encode([$row->id]) . ')'
                             ];
                         }),

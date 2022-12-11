@@ -75,7 +75,9 @@
     "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.": "نسيت رقمك السري؟ لا مشكلة. فقط أخبرنا بعنوان بريدك الإلكتروني وسنرسل لك عبر البريد الإلكتروني رابط إعادة تعيين كلمة المرور الذي سيسمح لك باختيار عنوان جديد.",
     "Email Password Reset Link": "رابط إعادة تعيين كلمة مرور البريد الإلكتروني",
     "Login": "تسجيل الدخول",
-    "Register": "حساب جديد"
+    "Register": "حساب جديد",
+    "Dashboard": "لوحة التحكم",
+    "Language": "اللغة"
 
 
 }

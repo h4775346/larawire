@@ -25,5 +25,7 @@
 
 <script src="{{asset('js/popper.js')}}"></script>
 <script src="{{asset('js/theme.js')}}"></script>
+<script src="{{asset('js/flowbite.js')}}"></script>
+
 </body>
 </html>

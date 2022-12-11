@@ -68,6 +68,13 @@
                                 </x-jet-dropdown-link>
                             @endif
 
+                            @foreach(config('app.locales') as $key=>$name)
+                                <x-jet-dropdown-link href="{{route('locale.update',$key)}}"  class="{{app()->getLocale() == $key ?'text-gray-500 disabled':'cursor-pointer'}}">
+                                    {{$name}}
+                                </x-jet-dropdown-link>
+                            @endforeach
+
+
                             <div class="border-t border-gray-100 dark:border-gray-600"></div>
 
                             <!-- Authentication -->
@@ -115,8 +122,9 @@
 {{--            </x-jet-responsive-nav-link>--}}
 {{--        </div>--}}
 
-        <!-- Responsive Settings Options -->
+<!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
+
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <div class="shrink-0 ltr:mr-3 rtl:ml-3">
@@ -142,6 +150,14 @@
                     </x-jet-responsive-nav-link>
                 @endif
 
+                    @foreach(config('app.locales') as $key=>$name)
+                    <x-jet-responsive-nav-link href="{{route('locale.update',$key)}}"  class="{{app()->getLocale() == $key ?'text-gray-500 disabled':'cursor-pointer'}}">
+                        {{$name}}
+                    </x-jet-responsive-nav-link>
+                    @endforeach
+
+
+
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
@@ -151,6 +167,8 @@
                         {{ __('Log Out') }}
                     </x-jet-responsive-nav-link>
                 </form>
+
+
 
                 <!-- Team Management -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())

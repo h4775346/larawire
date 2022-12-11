@@ -3,7 +3,8 @@
         <div class="container flex flex-wrap justify-between items-center mx-auto">
             <a href="{{route('welcome')}}" class="flex items-center">
                 <img src="{{asset('images/logoo.png')}}" class="ltr:mr-3 rtl:ml-3 h-6 sm:h-9" alt="Logo">
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{config("app.name")}}</span>
+                <span
+                    class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{config("app.name")}}</span>
             </a>
             <button data-collapse-toggle="navbar-default" type="button"
                     class="inline-flex items-center p-2 ltr:ml-3 rtl:mr-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -16,35 +17,40 @@
                           clip-rule="evenodd"></path>
                 </svg>
             </button>
-            <div class="flex">
-                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                    <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                            <x-nav.nav-item route="welcome">
-                                {{__('Home')}}
+            {{--            <div class="flex">--}}
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <x-nav.nav-item route="welcome">
+                        {{__('Home')}}
+                    </x-nav.nav-item>
+
+                    @if (Route::has('login'))
+                        @auth
+                            <x-nav.nav-item route="dashboard">
+                                {{__('Dashboard')}}
+                            </x-nav.nav-item>
+                        @else
+                            <x-nav.nav-item route="login">
+                                {{__('Login')}}
                             </x-nav.nav-item>
 
-                        @if (Route::has('login'))
-                                @auth
-                                <x-nav.nav-item route="dashboard">
-                                    {{__('Dashboard')}}
-                                </x-nav.nav-item>
-                                @else
-                                <x-nav.nav-item route="login">
-                                    {{__('Login')}}
-                                </x-nav.nav-item>
-
                             @if (Route::has('register'))
-                                    <x-nav.nav-item route="register">
-                                        {{__('Register')}}
-                                    </x-nav.nav-item>
+                                <x-nav.nav-item route="register">
+                                    {{__('Register')}}
+                                </x-nav.nav-item>
 
-                                @endif
-                                @endauth
+                            @endif
+                        @endauth
 
-                        @endif
+                    @endif
 
-                    </ul>
-                </div>
+                 @include('partials.language-drop-down')
+
+                </ul>
+            </div>
+            {{--            </div>--}}
+
+            <div class="flex justify-center w-full md:w-auto">
                 <button id="theme-toggle" type="button"
                         class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700  focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
                     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -59,8 +65,8 @@
                     </svg>
                 </button>
             </div>
-
         </div>
+
     </nav>
 
 </div>

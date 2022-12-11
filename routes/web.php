@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Settings\LocaleController;
 use App\Http\Livewire\Users\Index;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +25,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard',\App\Http\Livewire\Dashboard::class)->name('dashboard');
+    Route::get('/dashboard', \App\Http\Livewire\Dashboard::class)->name('dashboard');
     Route::get('users', Index::class)->name('users.index');
     Route::get('roles', App\Http\Livewire\Roles\Index::class)->name('roles.index');
 });
+
+Route::middleware(['web'])->get('locale/{language}', LocaleController::class)->name('locale.update');

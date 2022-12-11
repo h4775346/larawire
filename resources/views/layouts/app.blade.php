@@ -7,8 +7,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap"
           rel="stylesheet">
 
@@ -51,6 +49,8 @@
 <script src="{{asset('js/theme.js')}}"></script>
 <script src="{{asset('js/sweetalert2.js')}}"></script>
 <script src="{{asset('js/nav.js')}}"></script>
+<script src="{{asset('js/flowbite.js')}}"></script>
+
 <x-alerts/>
 
 @stack('modals')

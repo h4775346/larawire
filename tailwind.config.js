@@ -12,7 +12,7 @@ module.exports = {
         './vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php',
         './app/Http/Livewire/**/*.php',
         './public/js/**/*.js',
-
+        "./node_modules/flowbite/**/*.js"
     ],
 
     theme: {
@@ -35,5 +35,5 @@ module.exports = {
     },
 
 
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'),require("daisyui")],
+    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'),require("daisyui"),require('flowbite/plugin')],
 };
