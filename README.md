@@ -20,6 +20,7 @@ This Project has been created to make it easy for you to start any project
 - ✅ Dark Mode Supported.
 - ✅ Tailwind Included.
 - ✅ Jetstream Used
+- ✅ RTL Supported
 
 ## Installation
 
