@@ -42,7 +42,7 @@ cp .env.example .env
 
 After That install composer libraries
 ```
-composer install
+composer update
 ```
 Install node modules for that you need nodejs
 ```
