@@ -16,27 +16,31 @@ class Index extends Component
 {
     use Sweety;
 
-    protected $listeners = ['show','create', 'edit', 'update', 'delete', 'destroy'];
+    protected $listeners = ['show', 'create', 'edit', 'update', 'delete', 'destroy'];
 
     public function render()
     {
+        can_or_abort("users.index");
         return view('livewire.users.index');
     }
 
     public function show($id)
     {
+        can_or_abort("users.index");
         $this->emit('openModal', 'users.show', ['user' => $id]);
     }
 
     public function edit($id)
     {
+        can_or_abort("users.update");
         $this->emit('openModal', 'users.edit', ['user' => $id]);
     }
 
 
-    public function create($user,$roles = [])
+    public function create($user, $roles = [])
     {
-       $user =  User::query()->create([
+        can_or_abort("users.create");
+        $user = User::query()->create([
             'name' => $user['name'],
             'email' => $user['email'],
             'password' => Hash::make($user['password']),
@@ -54,7 +58,7 @@ class Index extends Component
      */
     public function update($user)
     {
-
+        can_or_abort("users.update");
         $oldUser = User::findOrFail($user["id"]);
 
         if ($user["email"] !== $oldUser->email &&
@@ -90,11 +94,13 @@ class Index extends Component
 
     public function delete($ids)
     {
+        can_or_abort("users.delete");
         $this->showConfirm('warning', 'Please Confirm This Process', 'destroy', ['ids' => $ids]);
     }
 
     public function destroy($data)
     {
+        can_or_abort("users.delete");
         User::query()->whereIn('id', $data["ids"])->delete();
         $this->showToast("success", "Process Done Successfully");
         $this->emit('closeModal');

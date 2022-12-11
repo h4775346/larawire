@@ -16,7 +16,7 @@
             </div>
 
 
-            <x-roles-selector :allRoles="$allRoles" button="Create"/>
+            <x-roles-selector :allRoles="$allRoles" button="{{__('Create')}}"/>
 
         </div>
         <div class="modal-action">

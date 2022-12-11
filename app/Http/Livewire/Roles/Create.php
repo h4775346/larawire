@@ -27,6 +27,7 @@ class Create extends ModalComponent
 
     public function mount()
     {
+        can_or_abort("roles.create");
         $this->roleData = collect(["name"]);
         $this->allPermissions = Permission::all()->where("guard_name","web");
     }

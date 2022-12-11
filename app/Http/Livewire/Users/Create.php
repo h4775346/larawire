@@ -32,6 +32,7 @@ class Create extends ModalComponent
 
     public function mount()
     {
+        can_or_abort("users.create");
         $this->userData = collect(["name", 'email', 'password', 'password_confirmation']);
         $this->allRoles = Role::all();
 

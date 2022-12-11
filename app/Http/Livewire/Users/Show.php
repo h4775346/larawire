@@ -25,6 +25,7 @@ class Show extends ModalComponent
 
     public function render()
     {
+        can_or_abort("users.index");
         return view('livewire.users.show');
     }
 

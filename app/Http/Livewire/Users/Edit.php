@@ -31,6 +31,9 @@ class Edit extends ModalComponent
 
     public function mount(User $user)
     {
+
+        can_or_abort("users.update");
+
         $this->userData = $user;
         $this->allRoles = Role::all();
         $this->selectedRoles = $this->userData->getRoleNames()->toArray();
@@ -47,7 +50,6 @@ class Edit extends ModalComponent
     {
         $this->validateOnly($propertyName);
     }
-
 
 
     public function update()

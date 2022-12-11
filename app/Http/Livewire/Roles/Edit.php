@@ -29,6 +29,7 @@ class Edit extends ModalComponent
 
     public function mount(Role $role)
     {
+        can_or_abort("roles.update");
         $this->roleData = $role;
         $this->allPermissions = Permission::all();
         $this->selectedPermissions = $this->roleData->getPermissionNames();

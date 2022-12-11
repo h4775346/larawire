@@ -36,11 +36,20 @@ class RolesAndPermissionsSeeder extends Seeder
             'devices.delete',
         ];
 
+        $rolesPermissions = [
+            'roles.index',
+            'roles.create',
+            'roles.update',
+            'roles.delete',
+        ];
+
+        $allPermissions = array_merge($usersPermissions, $serversPermissions, $devicesPermissions,$rolesPermissions);
+
         $usersGiven = array_merge($serversPermissions, $devicesPermissions);
         unset($usersGiven["devices.all"]);
         unset($usersGiven["servers.all"]);
 
-        foreach (array_merge($usersPermissions, $serversPermissions, $devicesPermissions) as $permission) {
+        foreach ( $allPermissions as $permission) {
             Permission::create(['name' => $permission, 'guard_name' => 'web']);
         }
 //
@@ -55,6 +64,6 @@ class RolesAndPermissionsSeeder extends Seeder
 
         $user->givePermissionTo($usersGiven);
 
-        $superAdmin->givePermissionTo(array_merge($usersPermissions, $serversPermissions, $devicesPermissions));
+        $superAdmin->givePermissionTo($allPermissions);
     }
 }

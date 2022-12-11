@@ -13,11 +13,14 @@
                 <nav class="menu open-current-submenu">
                     <ul>
                         <x-side-nav-item route="dashboard" icon="ri ri-home-2-line" title="{{__('Home')}}"></x-side-nav-item>
+                        @can("users.index")
                         <x-side-nav-sub-item route="users" icon="ri-group-line" title="{{__('Users')}}">
                             <x-side-nav-item  route="users.index" icon="ri-list-ordered" title="{{__('All Users')}}"></x-side-nav-item>
                         </x-side-nav-sub-item>
+                        @endcan
+                        @can("roles.index")
                         <x-side-nav-item route="roles.index" icon="ri ri-shield-user-line" title="{{__('Roles')}}"></x-side-nav-item>
-
+                        @endcan
                     </ul>
                 </nav>
             </div>

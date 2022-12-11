@@ -22,6 +22,7 @@ class Table extends DataTableComponent
 
     public function configure(): void
     {
+        can_or_abort("roles.index");
         $this->bulkActions['delete'] = __("Delete");
         $this->setPrimaryKey('id');
         $this->setTableWrapperAttributes([

@@ -21,6 +21,7 @@ class Table extends DataTableComponent
 
     public function configure(): void
     {
+        can_or_abort("users.index");
         $this->bulkActions['delete'] = __("Delete");
         $this->setPrimaryKey('id');
         $this->setTableWrapperAttributes([
@@ -94,6 +95,7 @@ class Table extends DataTableComponent
 
     public function delete()
     {
+        can_or_abort("users.delete");
         $this->emitUp('delete', $this->getSelected());
     }
 

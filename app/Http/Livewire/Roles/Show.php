@@ -15,6 +15,7 @@ class Show extends ModalComponent
 
     public function mount(Role $role)
     {
+        can_or_abort("roles.index");
         $this->roleData = $role;
     }
 
