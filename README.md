@@ -55,6 +55,11 @@ Now you generate artisan key
 php artisan key:generate
 ```
 
+After that generate JWT key For Apis
+```
+php artisan jwt:secret
+```
+
 Now Start migration with seeding roles and permissions with users
 ```
 php artisan migrate:fresh --seed
